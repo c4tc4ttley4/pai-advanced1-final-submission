@@ -1,0 +1,7 @@
+# 配布条件
+
+自作コードのpublic配布ライセンスはユーザー未指定です。このstagingはローカルレビュー用で、勝手にOSSライセンスを付与していません。公開前にユーザーの配布条件確認が必要です。
+
+派生sceneはVector-Wangel/XLeRobot commit b017b5e6354bd9f61f4247a920c72622ca0aade0に由来し、元のApache-2.0 LICENSEをthird_party/XLeRobot/LICENSEへ保持しています。変更はscenes/*/derivation.jsonに記録。メッシュ本体・依存package実体・データ/重み/動画は同梱しません。
+
+外部依存のバージョンと各配布metadataはuv.lockに保存されています。LeRobot/torch等の利用条件は各取得元の同梱ライセンスも確認し、packageを再配布する場合には別途その条件を確認してください。本STEPでは追加取得・package実体の再配布をしていません。

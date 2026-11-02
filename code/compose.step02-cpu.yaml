@@ -1,0 +1,10 @@
+# Used with compose.yaml: keep the pai image, mounts and limits, expose no GPU.
+services:
+  pai:
+    deploy:
+      resources:
+        reservations:
+          devices: !reset []
+    environment:
+      NVIDIA_VISIBLE_DEVICES: void
+      MUJOCO_GL: disable

@@ -1,0 +1,13 @@
+{
+  "joint_names": ["Rotation_R", "Pitch_R", "Elbow_R", "Wrist_Pitch_R", "Wrist_Roll_R", "Jaw_R"],
+  "action_range": [[-1.5, 1.5], [0.0, 3.1], [0.0, 2.9], [-1.6, 1.6], [-2.8, 2.8], [0.0, 0.9]],
+  "initial_action": [0.0, 0.85, 1.4, 0.0, 0.0, 0.6],
+  "physics_dt": 0.002,
+  "control_dt": 0.02,
+  "max_target_speed_rad_s": 0.6,
+  "table": {"center": [-0.20, 0.45, 0.64], "half_size": [0.29, 0.22, 0.025], "friction": [0.8, 0.005, 0.0001]},
+  "block": {"position": [-0.13, 0.38, 0.680], "half_size": [0.012, 0.012, 0.012], "mass": 0.025, "friction": [1.0, 0.005, 0.0001]},
+  "tray": {"center": [-0.29, 0.42, 0.67], "half_size": [0.065, 0.055, 0.005], "wall_half_thickness": 0.004, "wall_height": 0.04, "friction": [0.8, 0.005, 0.0001]},
+  "camera": {"name": "workspace", "position": [-0.95, 1.30, 1.45], "lookat": [-0.18, 0.35, 0.76], "width": 640, "height": 480, "fovy": 48},
+  "assumptions": "All task geometry/camera positions are simulation assumptions; no real hardware measurements. Fixed original three-omni-wheel chassis."
+}

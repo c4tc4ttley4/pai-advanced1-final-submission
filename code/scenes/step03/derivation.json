@@ -1,0 +1,40 @@
+{
+  "source": "scenes/step02/scene.xml",
+  "source_sha256": "248339ebfaec395744726c29f1ac622037c30cefa2745b5595809e60c09d05fd",
+  "changes": [
+    {
+      "geoms": [
+        "block_geom",
+        "robot_geom_41"
+      ],
+      "solref_before": "mixed: 0.015 1",
+      "solref_after": "0.004 1",
+      "solimp_before": "0.9 0.95 0.001 0.5 2",
+      "solimp_after": "0.95 0.99 0.001 0.5 2",
+      "condim_before": 3,
+      "condim_after": 4,
+      "friction": "sliding 1 unchanged; existing torsion coefficient 0.005 m enabled"
+    },
+    {
+      "geoms": [
+        "block_geom",
+        "robot_geom_44"
+      ],
+      "solref_before": "mixed: 0.015 1",
+      "solref_after": "0.004 1",
+      "solimp_before": "0.9 0.95 0.001 0.5 2",
+      "solimp_after": "0.95 0.99 0.001 0.5 2",
+      "condim_before": 3,
+      "condim_after": 4,
+      "friction": "sliding 1 unchanged; existing torsion coefficient 0.005 m enabled"
+    }
+  ],
+  "solver_changes": {
+    "cone_before": "pyramidal",
+    "cone_after": "elliptic",
+    "noslip_iterations_before": 0,
+    "noslip_iterations_after": 5
+  },
+  "reason": "dev03: closing to zero produced 13mm penetration; dev05: bounded squeezing lifted then slipped/rotated out; dev08/09: soft tangential drift caused early drop. Stiffer finite-pad contacts plus torsional friction and no-slip postprocessing; no geometry, mass, gravity, force gains, contact mask or sliding friction change.",
+  "mesh_copy": false
+}

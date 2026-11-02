@@ -1,0 +1,111 @@
+{
+  "source": "third_party/XLeRobot/simulation/mujoco/xlerobot.xml",
+  "source_sha256": "ba8419c18718624dc6f85577c5bb38124160483e03808b9e8c377daf89d62b56",
+  "removed_joints": [
+    {
+      "name": "slide_joint_x",
+      "type": "slide",
+      "axis": "1 0 0",
+      "damping": "0.1"
+    },
+    {
+      "name": "slide_joint_y",
+      "type": "slide",
+      "axis": "0 1 0",
+      "damping": "0.1"
+    },
+    {
+      "name": "hinge_joint_z",
+      "type": "hinge",
+      "axis": "0 0 1",
+      "damping": "0.1"
+    },
+    {
+      "name": "ST3215_Servo_Motor-v1-2_Hub---Servo",
+      "type": "hinge",
+      "axis": "6.887535064975403e-49 -3.749399456654644e-33 1.0",
+      "pos": "-4.4408920985006255e-18 -3.469446951953615e-18 -0.0015874999999999917"
+    },
+    {
+      "name": "ST3215_Servo_Motor-v1-1_Hub-2---Servo",
+      "type": "hinge",
+      "axis": "-2.018922194424455e-07 5.551115123125783e-17 0.9999996503124187",
+      "pos": "1.0279185592260934e-07 6.850769951327593e-18 -0.0015873219592831226"
+    },
+    {
+      "name": "ST3215_Servo_Motor-v1_Revolute-40",
+      "type": "hinge",
+      "axis": "-1.2961506867803505e-16 -2.018922189983563e-07 0.9999996503124184",
+      "pos": "2.796134304347991e-17 1.2953369686987196e-08 -0.0015874775641056748"
+    },
+    {
+      "name": "Rotation_L",
+      "pos": "0 0 0",
+      "axis": "0 -1 0",
+      "range": "-2.1 2.1"
+    },
+    {
+      "name": "Pitch_L",
+      "pos": "0 0 0",
+      "axis": "-1 0 0",
+      "range": "-0.1 3.45"
+    },
+    {
+      "name": "Elbow_L",
+      "pos": "0 0 0",
+      "axis": "1 0 0",
+      "range": "-0.2 3.14159"
+    },
+    {
+      "name": "Wrist_Pitch_L",
+      "pos": "0 0 0",
+      "axis": "1 0 0",
+      "range": "-1.8 1.8"
+    },
+    {
+      "name": "Wrist_Roll_L",
+      "pos": "0 0 0",
+      "axis": "0 -1 0",
+      "range": "-3.14159 3.14159"
+    },
+    {
+      "name": "Jaw_L",
+      "pos": "0 0 0",
+      "axis": "0 0 1",
+      "range": "-3.14159 3.14159"
+    },
+    {
+      "name": "head_pan_joint",
+      "pos": "0 0 0",
+      "axis": "0 0 1",
+      "range": "-1.57 1.57",
+      "actuatorfrcrange": "-0.32 0.32"
+    },
+    {
+      "name": "head_tilt_joint",
+      "pos": "0 0 0",
+      "axis": "0 1 0",
+      "range": "-0.76 1.45",
+      "actuatorfrcrange": "-0.68 0.68"
+    }
+  ],
+  "fixed_pose": "all removed joint angles zero; rigid body tree",
+  "retained_joints": [
+    "Rotation_R",
+    "Pitch_R",
+    "Elbow_R",
+    "Wrist_Pitch_R",
+    "Wrist_Roll_R",
+    "Jaw_R"
+  ],
+  "changes": [
+    "remove inactive actuators/tendons",
+    "name geoms",
+    "right-arm damping/armature and position gains/ranges",
+    "torso alpha=0",
+    "coarse torso proxy contact disabled due to 33.5mm shoulder overlap; other robot mesh contacts retained",
+    "tcp site",
+    "task geometry, floor, fixed camera"
+  ],
+  "mesh_copy": false
+}

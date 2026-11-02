@@ -1,0 +1,70 @@
+name: pai-advanced1-final
+services:
+  bootstrap:
+    profiles: [tools]
+    image: pai-advanced1-final-bootstrap:step01
+    platform: linux/amd64
+    build:
+      context: .
+      target: bootstrap
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:-python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c}
+        UV_IMAGE: ${UV_IMAGE:-ghcr.io/astral-sh/uv:0.9.5@sha256:f459f6f73a8c4ef5d69f4e6fbbdb8af751d6fa40ec34b39a1ab469acd6e289b7}
+    user: "${PAI_UID:?Set PAI_UID in .env}:${PAI_GID:?Set PAI_GID in .env}"
+    working_dir: /workspace
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    environment:
+      HOME: /tmp
+      UV_CACHE_DIR: /workspace/.cache/uv
+      UV_PYTHON_DOWNLOADS: never
+    cpus: 2
+    mem_limit: 4g
+    pids_limit: 256
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    command: [uv, lock, --python, /usr/local/bin/python3.12]
+
+  pai:
+    image: pai-advanced1-final:step01
+    platform: linux/amd64
+    build:
+      context: .
+      target: runtime
+      args:
+        PYTHON_IMAGE: ${PYTHON_IMAGE:-python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c}
+        UV_IMAGE: ${UV_IMAGE:-ghcr.io/astral-sh/uv:0.9.5@sha256:f459f6f73a8c4ef5d69f4e6fbbdb8af751d6fa40ec34b39a1ab469acd6e289b7}
+    user: "${PAI_UID:?Set PAI_UID in .env}:${PAI_GID:?Set PAI_GID in .env}"
+    working_dir: /workspace
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    environment:
+      HOME: /tmp
+      XDG_CACHE_HOME: /workspace/.cache
+      HF_HOME: /workspace/.cache/huggingface
+      HF_HUB_OFFLINE: "1"
+      WANDB_MODE: disabled
+      MUJOCO_GL: egl
+      PYOPENGL_PLATFORM: egl
+      MUJOCO_EGL_DEVICE_ID: "0"
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${PAI_GPU_DEVICE:?Select exactly one host GPU in .env}"]
+              capabilities: [gpu]
+    cpus: 2
+    mem_limit: 8g
+    shm_size: 1g
+    pids_limit: 256
+    network_mode: none
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    init: true
+    command: [sleep, infinity]

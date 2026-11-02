@@ -1,0 +1,16 @@
+{
+  "repo_id": "local/step04-cleanup",
+  "fps": 50,
+  "task": "Place the block into the tray with the robot's left arm.",
+  "seed": 42,
+  "offsets_m": [[0.0, 0.0], [-0.005, 0.0], [0.005, 0.0], [0.0, -0.005], [0.0, 0.005]],
+  "max_frames_per_episode": 2750,
+  "episode_wall_limit_s": 180,
+  "output_limit_bytes": 6442450944,
+  "min_free_bytes": 10737418240,
+  "replay_state_tolerance_rad": 0.0001,
+  "replay_block_tolerance_m": 0.0001,
+  "codec": "h264",
+  "crf": 23,
+  "encoder_threads": 2
+}
